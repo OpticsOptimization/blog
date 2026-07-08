@@ -314,7 +314,7 @@ body {
   text-decoration: none; color: var(--ink);
 }
 .logo-mark {
-  width: 28px; height: auto;
+  width: 22px; height: auto;
   color: var(--ink);
   opacity: 0.9;
 }
@@ -338,8 +338,8 @@ body {
 }
 .footer-logo { margin-bottom: 0.5rem; }
 .footer-mark {
-  width: 36px; height: auto;
-  color: var(--ink); opacity: 0.25;
+  width: 20px; height: auto;
+  color: var(--ink); opacity: 0.2;
 }
 .footer p {
   font-family: var(--font-mono); font-size: 0.7rem;
