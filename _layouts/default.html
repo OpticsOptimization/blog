@@ -3,38 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }} | DRE Blog</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>hljs.highlightAll())</script>
 </head>
 <body>
   <nav class="navbar">
-    <a href="{{ '/' | relative_url }}" class="nav-logo">
-      <span class="logo-icon">◈</span>
-      <span class="logo-text">DRE</span>
+    <a href="{{ '/' | relative_url }}" class="nav-logo" aria-label="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" height="20">
+        <text y="32" font-family="'DM Serif Display', Georgia, serif" font-size="28" fill="currentColor" letter-spacing="-1">DRE</text>
+      </svg>
     </a>
-    <div class="nav-links">
+    <nav class="nav-links">
       <a href="{{ '/' | relative_url }}">Blog</a>
       <a href="https://github.com/OpticsOptimization/git" target="_blank">Algorithms</a>
-      <a href="https://amazon.com" target="_blank" class="nav-cta">Buy the Book →</a>
-    </div>
+      <a href="https://amazon.com" target="_blank" class="nav-cta">Buy Book</a>
+    </nav>
   </nav>
 
-  <main>
-    {{ content }}
-  </main>
+  <main>{{ content }}</main>
 
   <footer class="footer">
-    <div class="footer-inner">
-      <p>Built on real math. Written for real engineers.</p>
-      <p class="footer-sub">© {{ site.time | date: '%Y' }} Digital Rendering Engineering · <a href="https://github.com/OpticsOptimization" target="_blank">GitHub</a></p>
-    </div>
+    <p>Digital Rendering Engineering · Physics of Light</p>
+    <p><a href="https://github.com/OpticsOptimization" target="_blank">GitHub ↗</a></p>
   </footer>
+
 </body>
 </html>
