@@ -14,10 +14,19 @@ title: "Digital Rendering Engineering · Tech Blog"
   <div class="posts-grid">
     {% for post in site.posts %}
     <a href="{{ post.url | relative_url }}" class="post-card">
-              <div class="card-date">{{ post.date | date: "%b %d, %Y" }}</div>
+      <div class="card-thumb proc-bg-{{ post.title.size | modulo: 3 }}">
+        {% if post.thumbnail_svg %}
+          {{ post.thumbnail_svg }}
+        {% else %}
+          <div class="thumb-placeholder">DRE</div>
+        {% endif %}
+      </div>
+      <div class="card-content">
+        <div class="card-date">{{ post.date | date: "%b %d, %Y" }}</div>
         <h3 class="card-title">{{ post.title }}</h3>
-        <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
-        <span class="card-arrow">Read article →</span>
+        <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        <span class="card-arrow">Read article &rarr;</span>
+      </div>
     </a>
     {% endfor %}
   </div>
