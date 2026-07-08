@@ -178,13 +178,7 @@ body {
 }
 .posts-grid { display: flex; flex-direction: column; }
 
-.post-card {
-  display: grid; grid-template-columns: 90px 1fr;
-  gap: 2rem; padding: 2rem 0;
-  border-bottom: 1px solid var(--border);
-  text-decoration: none; color: inherit;
-  transition: opacity 0.2s;
-}
+
 .post-card:first-child { border-top: 1px solid var(--border); }
 .post-card:hover { opacity: 0.7; }
 .card-date {
@@ -315,7 +309,7 @@ body {
   .navbar { padding: 0 1.25rem; }
   .nav-links a:not(.nav-cta) { display: none; }
   .hero, .posts-section, .post-page { padding-left: 1.25rem; padding-right: 1.25rem; }
-  .post-card { grid-template-columns: 1fr; gap: 0.5rem; }
+  
   .card-date { padding-top: 0; }
 }
 
@@ -323,3 +317,51 @@ body {
 .post-excerpt { display: none; }
 .post-content h1:first-of-type, .post-content h2:first-of-type { display: none !important; }
 .post-excerpt { display: none !important; }
+
+/* Thumbnail Layout */
+.post-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  text-decoration: none;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.post-card:hover { background: var(--surface2); }
+.card-content { display: flex; flex-direction: column; justify-content: center; }
+
+/* CSS Procedural Backgrounds (Ideia 3) */
+.card-thumb {
+  width: 140px; height: 140px;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.proc-bg-0 { background: radial-gradient(circle at top left, #161b22, #080c10); }
+.proc-bg-1 { background: linear-gradient(135deg, #0d1117 0%, #1a1e24 100%); }
+.proc-bg-2 { background: conic-gradient(from 180deg at 50% 50%, #0d1117, #161b22, #0d1117); }
+
+/* SVG Minimalista (Ideia 1) */
+.card-thumb svg {
+  width: 60%; height: 60%;
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-width: 2;
+  transition: stroke 0.3s, transform 0.3s;
+  opacity: 0.8;
+}
+.post-card:hover .card-thumb svg {
+  stroke: var(--accent);
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(88,166,255,0.4));
+}
+.thumb-placeholder { font-family: var(--font-mono); color: var(--text-subtle); letter-spacing: 2px; }
+
+@media (max-width: 600px) {
+  .post-card { grid-template-columns: 1fr; padding: 1.5rem; gap: 1rem; }
+  .card-thumb { width: 100%; height: 160px; }
+}
