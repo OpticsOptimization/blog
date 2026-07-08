@@ -277,3 +277,12 @@ body {
   .hero { padding: 4rem 1rem 2rem; }
   .posts-section, .post-page { padding-left: 1rem; padding-right: 1rem; }
 }
+
+.cta-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.cta-btn-2 {
+  background: transparent !important;
+  border: 1px solid rgba(245,201,122,0.35) !important;
+  color: var(--light-warm-dim) !important;
+  box-shadow: none !important;
+}
+.cta-btn-2:hover { border-color: rgba(245,201,122,0.7) !important; box-shadow: 0 0 12px rgba(245,201,122,0.15) !important; }
