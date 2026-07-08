@@ -15,7 +15,9 @@ title: "Digital Rendering Engineering · Tech Blog"
     {% for post in site.posts %}
     <a href="{{ post.url | relative_url }}" class="post-card">
       <div class="card-thumb proc-bg-{{ post.title.size | modulo: 3 }}">
-        {% if post.thumbnail_svg %}
+        {% if post.thumbnail %}
+          <img src="{{ post.thumbnail | relative_url }}" class="thumb-img" alt="Thumbnail">
+        {% elsif post.thumbnail_svg %}
           {{ post.thumbnail_svg }}
         {% else %}
           <div class="thumb-placeholder">DRE</div>
