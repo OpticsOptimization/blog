@@ -4,26 +4,21 @@ layout: default
 <article class="post-page">
   <header class="post-header">
     <div class="post-meta">
-      <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
-      <span class="post-sep">·</span>
-      <span class="post-read">{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      <time class="post-date">{{ page.date | date: "%B %d, %Y" }}</time>
+      <span class="post-meta-sep">·</span>
+      <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
-    {% if page.excerpt %}
-    <p class="post-excerpt">{{ page.excerpt }}</p>
-    {% endif %}
+    {% if page.excerpt %}<p class="post-excerpt">{{ page.excerpt | strip_html }}</p>{% endif %}
   </header>
 
-  <div class="post-content">
-    {{ content }}
-  </div>
+  <div class="post-content">{{ content }}</div>
 
   <aside class="book-cta">
-    <div class="cta-icon">📐</div>
-    <div class="cta-body">
-      <p class="cta-label">Go Deeper</p>
-      <p class="cta-text">Every concept in this post is derived from first principles in <strong>Digital Rendering Engineering</strong>. The book covers the full mathematical proof with shader implementations and GPU performance analysis.</p>
-      <a href="https://amazon.com" target="_blank" class="cta-btn">Read the Book on Amazon →</a>
+    <div>
+      <p class="cta-label">Dig Deeper</p>
+      <p class="cta-text">"Every equation in this post is proved from first principles in <em>Digital Rendering Engineering</em>."</p>
     </div>
+    <a href="https://amazon.com" target="_blank" class="cta-btn">Get the Book →</a>
   </aside>
 </article>
