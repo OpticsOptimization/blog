@@ -1,2 +1,9 @@
-theme: jekyll-theme-hacker
-title: Digital Rendering
+title: "Digital Rendering Engineering"
+description: "Advanced Mathematics & Physics for Graphics Programmers"
+baseurl: "/blog"
+url: "https://opticsoptimization.github.io"
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+plugins:
+  - jekyll-feed
