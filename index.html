@@ -14,12 +14,10 @@ title: "Digital Rendering Engineering · Tech Blog"
   <div class="posts-grid">
     {% for post in site.posts %}
     <a href="{{ post.url | relative_url }}" class="post-card">
-      <div class="card-inner">
-        <time class="card-date">{{ post.date | date: "%b %d, %Y" }}</time>
+              <div class="card-date">{{ post.date | date: "%b %d, %Y" }}</div>
         <h3 class="card-title">{{ post.title }}</h3>
         <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
-        <span class="card-link">Read article →</span>
-      </div>
+        <span class="card-arrow">Read article →</span>
     </a>
     {% endfor %}
   </div>
