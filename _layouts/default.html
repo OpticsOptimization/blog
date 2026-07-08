@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/oolab.svg' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -14,9 +15,14 @@
 <body>
   <nav class="navbar">
     <a href="{{ '/' | relative_url }}" class="nav-logo" aria-label="Home">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" height="20">
-        <text y="32" font-family="'DM Serif Display', Georgia, serif" font-size="28" fill="currentColor" letter-spacing="-1">DRE</text>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.06 110" class="logo-mark">
+        <g fill="none" stroke="currentColor" stroke-width="10" stroke-miterlimit="10">
+          <circle cx="52.94" cy="52.94" r="47.94"/>
+          <circle cx="122.12" cy="52.94" r="47.94"/>
+        </g>
+        <circle cx="87.53" cy="52.94" r="6.49" fill="currentColor"/>
       </svg>
+      <span class="logo-text">DRE</span>
     </a>
     <nav class="nav-links">
       <a href="{{ '/' | relative_url }}">Blog</a>
@@ -28,9 +34,17 @@
   <main>{{ content }}</main>
 
   <footer class="footer">
+    <div class="footer-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.06 110" class="footer-mark">
+        <g fill="none" stroke="currentColor" stroke-width="10" stroke-miterlimit="10">
+          <circle cx="52.94" cy="52.94" r="47.94"/>
+          <circle cx="122.12" cy="52.94" r="47.94"/>
+        </g>
+        <circle cx="87.53" cy="52.94" r="6.49" fill="currentColor"/>
+      </svg>
+    </div>
     <p>Digital Rendering Engineering · Physics of Light</p>
-    <p><a href="https://github.com/OpticsOptimization" target="_blank">GitHub ↗</a></p>
+    <p><a href="https://github.com/OpticsOptimization" target="_blank">OpticsOptimization ↗</a></p>
   </footer>
-
 </body>
 </html>
