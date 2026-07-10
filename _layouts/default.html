@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }} | DRE Blog</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | escape }}">
+  <meta property="og:title" content="{{ page.title | default: site.title }} | DRE Blog">
+  <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | escape }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <link rel="icon" href="{{ '/assets/img/simbolo.svg' | relative_url }}" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -29,12 +35,29 @@
       <a href="{{ '/' | relative_url }}">Blog</a>
       <a href="https://dre.jmsage.pro">Store</a>
       <a href="https://dre.jmsage.pro/instrument.html">Light Simulator</a>
+      <a href="#" onclick="document.getElementById('dre-coffee-modal').style.display='flex'; return false;"
+         style="color:#8b949e; font-size:0.82rem;"
+         onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#8b949e'">☕ Support</a>
       <a href="https://dre.jmsage.pro" class="nav-cta" style="background:var(--glow-color); color:#000; padding:4px 12px; border-radius:2px; border:none;">Buy the Book →</a>
     </div>
   </nav>
 
   <main>
     {{ content }}
+
+    <!-- POST-ARTICLE SUPPORT BLOCK -->
+    <div style="max-width:760px; margin:4rem auto 2rem; padding:24px 28px; border-top:1px solid #21262d; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+      <div>
+        <p style="margin:0 0 4px; color:#e6edf3; font-size:0.9rem; font-weight:500;">If this helped you render reality better —</p>
+        <p style="margin:0; color:#8b949e; font-size:0.8rem;">consider supporting the project. Keep the math alive.</p>
+      </div>
+      <button onclick="document.getElementById('dre-coffee-modal').style.display='flex'"
+        style="background:none; border:1px solid #30363d; padding:8px 18px; border-radius:4px; color:#8b949e; cursor:pointer; font-family:inherit; font-size:0.82rem; letter-spacing:0.03em; transition:all 0.2s; white-space:nowrap;"
+        onmouseover="this.style.borderColor='#58a6ff'; this.style.color='#58a6ff';"
+        onmouseout="this.style.borderColor='#30363d'; this.style.color='#8b949e';">
+        ☕ Support the Author
+      </button>
+    </div>
   </main>
 
   <footer class="footer">
@@ -47,5 +70,105 @@
     <!-- Mermaid JS for diagrams -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true, theme: 'dark'});</script>
+
+  <!-- COFFEE MODAL (Blog) -->
+  <div id="dre-coffee-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.8); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#0d1117; border:1px solid #30363d; border-radius:16px; padding:36px; max-width:460px; width:100%; position:relative; box-shadow:0 24px 60px rgba(0,0,0,0.7); font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;">
+      <button onclick="closeDreCoffee()" style="position:absolute; top:16px; right:16px; background:none; border:none; color:#8b949e; cursor:pointer; font-size:1.3rem; line-height:1;">✕</button>
+      <div style="text-align:center; margin-bottom:24px;">
+        <div style="font-size:2.2rem; margin-bottom:8px;">☕</div>
+        <h2 style="font-size:1.3rem; color:#e6edf3; margin:0 0 6px; font-weight:600;">Buy the Author a Coffee</h2>
+        <p style="color:#8b949e; font-size:0.83rem; margin:0;">Support the DRE project. Every coffee keeps the math alive.</p>
+      </div>
+      <div style="margin-bottom:18px;">
+        <label style="display:block; color:#8b949e; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">Amount</label>
+        <div style="display:flex; gap:8px;">
+          <button class="dre-amt" data-v="3" onclick="dreSelectAmt(this,3)" style="flex:1; padding:9px 4px; border-radius:6px; border:1px solid #58a6ff; background:rgba(88,166,255,0.08); color:#58a6ff; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$3</button>
+          <button class="dre-amt" data-v="5" onclick="dreSelectAmt(this,5)" style="flex:1; padding:9px 4px; border-radius:6px; border:1px solid #30363d; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$5</button>
+          <button class="dre-amt" data-v="10" onclick="dreSelectAmt(this,10)" style="flex:1; padding:9px 4px; border-radius:6px; border:1px solid #30363d; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$10</button>
+          <button class="dre-amt" data-v="custom" onclick="dreSelectAmt(this,'custom')" style="flex:1; padding:9px 4px; border-radius:6px; border:1px solid #30363d; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">Custom</button>
+        </div>
+        <input type="number" id="dre-custom-amt" min="1" placeholder="Amount (USD)" style="display:none; margin-top:8px; width:100%; padding:9px 12px; border-radius:6px; border:1px solid #30363d; background:#010409; color:#c9d1d9; font-family:inherit; font-size:0.88rem; box-sizing:border-box; outline:none;">
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="display:block; color:#8b949e; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Name</label>
+        <input type="text" id="dre-coffee-name" placeholder="Anonymous Engineer" maxlength="50" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #30363d; background:#010409; color:#c9d1d9; font-family:inherit; font-size:0.88rem; box-sizing:border-box; outline:none;">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="display:block; color:#8b949e; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Message <span style="color:#484f58; text-transform:none;">(optional)</span></label>
+        <textarea id="dre-coffee-msg-text" placeholder="Great article! Keep going..." maxlength="200" rows="2" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #30363d; background:#010409; color:#c9d1d9; font-family:inherit; font-size:0.88rem; box-sizing:border-box; outline:none; resize:none;"></textarea>
+      </div>
+      <button id="dre-send-btn" onclick="dreSendCoffee()" style="width:100%; padding:13px; border-radius:6px; border:none; background:#58a6ff; color:#000; font-weight:700; font-size:0.95rem; cursor:pointer; font-family:inherit; transition:opacity 0.2s;">
+        Send Coffee ☕
+      </button>
+      <p id="dre-coffee-feedback" style="margin-top:10px; text-align:center; font-size:0.83rem; display:none;"></p>
+    </div>
+  </div>
+
+  <script>
+    let dreAmt = 3;
+    function dreSelectAmt(btn, val) {
+      document.querySelectorAll('.dre-amt').forEach(b => {
+        b.style.border = '1px solid #30363d';
+        b.style.background = 'transparent';
+        b.style.color = '#8b949e';
+      });
+      btn.style.border = '1px solid #58a6ff';
+      btn.style.background = 'rgba(88,166,255,0.08)';
+      btn.style.color = '#58a6ff';
+      const ci = document.getElementById('dre-custom-amt');
+      if (val === 'custom') { ci.style.display = 'block'; dreAmt = null; }
+      else { ci.style.display = 'none'; dreAmt = val; }
+    }
+    function closeDreCoffee() {
+      document.getElementById('dre-coffee-modal').style.display = 'none';
+      const btn = document.getElementById('dre-send-btn');
+      btn.disabled = false; btn.textContent = 'Send Coffee ☕'; btn.style.opacity = '1';
+      document.getElementById('dre-coffee-feedback').style.display = 'none';
+    }
+    document.getElementById('dre-coffee-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeDreCoffee();
+    });
+    async function dreSendCoffee() {
+      const customInput = document.getElementById('dre-custom-amt');
+      const amount = dreAmt || parseInt(customInput.value);
+      const name = document.getElementById('dre-coffee-name').value.trim() || 'Anonymous Engineer';
+      const message = document.getElementById('dre-coffee-msg-text').value.trim();
+      const fb = document.getElementById('dre-coffee-feedback');
+      const btn = document.getElementById('dre-send-btn');
+      
+      if (!amount || amount < 1) { 
+        fb.style.display='block'; fb.style.color='#f85149'; 
+        fb.textContent='Please select or enter a valid amount.'; 
+        return; 
+      }
+      
+      btn.disabled = true; btn.textContent = 'Preparing checkout...'; btn.style.opacity = '0.7'; fb.style.display='none';
+      
+      const ctrl = new AbortController();
+      const tid = setTimeout(() => ctrl.abort(), 10000);
+      try {
+        const res = await fetch('https://api.jmsage.pro/api/coffee', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({amount, name, message}), signal: ctrl.signal
+        });
+        clearTimeout(tid);
+        const data = await res.json();
+        
+        if (res.ok && data.url) { 
+          window.location.href = data.url; 
+        } else { 
+          fb.style.display='block'; fb.style.color='#f85149'; 
+          fb.textContent = data.error || 'Something went wrong.'; 
+          btn.disabled=false; btn.textContent='Send Coffee ☕'; btn.style.opacity='1'; 
+        }
+      } catch(err) {
+        clearTimeout(tid);
+        fb.style.display='block'; fb.style.color='#f85149';
+        fb.textContent = err.name==='AbortError' ? 'Request timed out.' : 'Connection error. Try again.';
+        btn.disabled=false; btn.textContent='Send Coffee ☕'; btn.style.opacity='1';
+      }
+    }
+  </script>
 </body>
 </html>
