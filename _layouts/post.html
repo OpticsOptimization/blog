@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="post-page">
+<article class="post-page fade-up">
   <header class="post-header">
     <div class="post-meta">
       <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
@@ -18,13 +18,14 @@ layout: default
     {{ content }}
   </div>
 
-  <aside class="book-cta">
+  <aside class="book-cta glassmorphic-cta">
+    <div class="cta-glow"></div>
     <div class="cta-icon">📐</div>
     <div class="cta-body">
       <p class="cta-label">Go Deeper</p>
       <p class="cta-text">Every concept in this post is rigorously derived from first principles in <strong>Digital Rendering Engineering</strong> — covering the full mathematical proof, HLSL implementations, and GPU performance analysis.</p>
       <div class="cta-buttons">
-        <a href="https://www.amazon.com/dp/B0GTMRVYST" target="_blank" class="cta-btn">Vol. 1 — Physics of Light →</a>
+        <a href="https://www.amazon.com/dp/B0GTMRVYST" target="_blank" class="cta-btn glow-btn">Vol. 1 — Physics of Light →</a>
         <a href="https://www.amazon.com/dp/B0GTTWK4C7" target="_blank" class="cta-btn cta-btn-2">Vol. 2 — Advanced Rendering →</a>
       </div>
     </div>

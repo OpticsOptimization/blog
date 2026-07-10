@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }} | DRE Blog</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | escape }}">
+  <link rel="icon" href="{{ '/assets/img/logo-dre.svg' | relative_url }}" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
@@ -21,7 +22,7 @@
 <body>
   <nav class="navbar">
     <a href="{{ '/' | relative_url }}" class="nav-logo">
-      <span class="logo-icon">◈</span>
+      <img src="{{ '/assets/img/logo-dre.svg' | relative_url }}" class="nav-logo-mark" alt="DRE Logo">
       <span class="logo-text">DRE</span>
     </a>
     <div class="nav-links">
