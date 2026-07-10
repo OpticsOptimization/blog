@@ -7,3 +7,6 @@ kramdown:
   math_engine: mathjax
 plugins:
   - jekyll-feed
+
+kofi_username: "opticsoptimization"
+kofi_url: "https://ko-fi.com/opticsoptimization"
