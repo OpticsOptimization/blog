@@ -40,7 +40,7 @@
          onmouseover="this.style.color='#e6edf3'" onmouseout="this.style.color='#8b949e'">☕ Support</a>
       
       <!-- Login Button -->
-      <a href="https://dre.jmsage.pro" class="nav-cta">Sign In</a>
+      <a href="https://dre.jmsage.pro/#login" class="nav-cta">Sign In</a>
     </div>
   </nav>
 
@@ -198,7 +198,7 @@
       copyBtn.style.transition = 'all 0.2s';
       
       copyBtn.onmouseover = function() {
-        this.style.borderColor = '#58a6ff';
+        this.style.borderColor = '#e6edf3';
         this.style.color = '#e6edf3';
       };
       copyBtn.onmouseout = function() {
@@ -211,8 +211,8 @@
         var text = code ? code.innerText : preBlock.innerText;
         navigator.clipboard.writeText(text).then(function() {
           copyBtn.textContent = 'Copied!';
-          copyBtn.style.color = '#58a6ff';
-          copyBtn.style.borderColor = '#58a6ff';
+          copyBtn.style.color = '#e6edf3';
+          copyBtn.style.borderColor = '#e6edf3';
           setTimeout(function() {
             copyBtn.textContent = 'Copy';
             copyBtn.style.color = '#8b949e';
