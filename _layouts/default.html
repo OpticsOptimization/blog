@@ -37,8 +37,10 @@
       <a href="https://dre.jmsage.pro/instrument.html">Light Simulator</a>
       <a href="#" onclick="document.getElementById('dre-coffee-modal').style.display='flex'; return false;"
          style="color:#8b949e; font-size:0.82rem;"
-         onmouseover="this.style.color='#58a6ff'" onmouseout="this.style.color='#8b949e'">☕ Support</a>
-      <a href="https://dre.jmsage.pro" class="nav-cta" style="background:var(--glow-color); color:#000; padding:4px 12px; border-radius:2px; border:none;">Buy the Book →</a>
+         onmouseover="this.style.color='#e6edf3'" onmouseout="this.style.color='#8b949e'">☕ Support</a>
+      
+      <!-- Login Button -->
+      <a href="https://dre.jmsage.pro" class="nav-cta">Sign In</a>
     </div>
   </nav>
 
@@ -53,7 +55,7 @@
       </div>
       <button onclick="document.getElementById('dre-coffee-modal').style.display='flex'"
         style="background:none; border:1px solid #30363d; padding:8px 18px; border-radius:4px; color:#8b949e; cursor:pointer; font-family:inherit; font-size:0.82rem; letter-spacing:0.03em; transition:all 0.2s; white-space:nowrap;"
-        onmouseover="this.style.borderColor='#58a6ff'; this.style.color='#58a6ff';"
+        onmouseover="this.style.borderColor='#e6edf3'; this.style.color='#e6edf3';"
         onmouseout="this.style.borderColor='#30363d'; this.style.color='#8b949e';">
         ☕ Support the Author
       </button>
@@ -82,7 +84,7 @@
       <div style="margin-bottom:18px; text-align:left;">
         <label style="display:block; color:#8b949e; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">Amount</label>
         <div style="display:flex; gap:8px;">
-          <button class="dre-amt" data-v="3" onclick="dreSelectAmt(this,3)" style="flex:1; padding:9px 4px; border-radius:4px; border:1px solid #58a6ff; background:rgba(88,166,255,0.08); color:#58a6ff; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$3</button>
+          <button class="dre-amt" data-v="3" onclick="dreSelectAmt(this,3)" style="flex:1; padding:9px 4px; border-radius:4px; border:1px solid #e6edf3; background:rgba(255,255,255,0.05); color:#e6edf3; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$3</button>
           <button class="dre-amt" data-v="5" onclick="dreSelectAmt(this,5)" style="flex:1; padding:9px 4px; border-radius:4px; border:1px solid #1f2328; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$5</button>
           <button class="dre-amt" data-v="10" onclick="dreSelectAmt(this,10)" style="flex:1; padding:9px 4px; border-radius:4px; border:1px solid #1f2328; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$10</button>
           <button class="dre-amt" data-v="custom" onclick="dreSelectAmt(this,'custom')" style="flex:1; padding:9px 4px; border-radius:4px; border:1px solid #1f2328; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">Custom</button>
@@ -108,13 +110,13 @@
     let dreAmt = 3;
     function dreSelectAmt(btn, val) {
       document.querySelectorAll('.dre-amt').forEach(b => {
-        b.style.border = '1px solid #30363d';
+        b.style.border = '1px solid #1f2328';
         b.style.background = 'transparent';
         b.style.color = '#8b949e';
       });
-      btn.style.border = '1px solid #58a6ff';
-      btn.style.background = 'rgba(88,166,255,0.08)';
-      btn.style.color = '#58a6ff';
+      btn.style.border = '1px solid #e6edf3';
+      btn.style.background = 'rgba(255,255,255,0.05)';
+      btn.style.color = '#e6edf3';
       const ci = document.getElementById('dre-custom-amt');
       if (val === 'custom') { ci.style.display = 'block'; dreAmt = null; }
       else { ci.style.display = 'none'; dreAmt = val; }

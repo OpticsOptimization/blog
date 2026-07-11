@@ -4,11 +4,11 @@
 :root {
   --black: #010409;
   --near-black: #0d1117;
-  --spotlight: rgba(230, 237, 243, 0.95);
-  --glow-color: rgba(88, 166, 255, 1);
+  --spotlight: rgba(255, 255, 255, 0.95);
+  --glow-color: rgba(255, 255, 255, 1);
   --rim: rgba(255, 255, 255, 0.04);
-  --text-bright: #e6edf3;
-  --text-mid: #6e7681;
+  --text-bright: #ffffff;
+  --text-mid: #8b949e;
   --text-dark: #30363d;
   --border: #1f2328;
   --border-lit: #30363d;
@@ -32,7 +32,7 @@ body {
   flex-direction: column;
   /* faint floor glow — secondary bounce */
   background-image:
-    radial-gradient(ellipse 60% 20% at 50% 100%, rgba(88,166,255,0.02) 0%, transparent 100%);
+    radial-gradient(ellipse 60% 20% at 50% 100%, rgba(255,255,255,0.03) 0%, transparent 100%);
 }
 
 /* ═══ NAVBAR ═══════════════════════════════════════════ */
@@ -61,11 +61,19 @@ body {
 }
 .nav-links a:hover { color: var(--text-mid); }
 .nav-cta {
-  color: var(--text-bright) !important;
-  border-bottom: 1px solid rgba(255,248,220,0.25) !important;
-  padding-bottom: 1px !important;
+  color: var(--black) !important;
+  background: var(--text-bright) !important;
+  border: none !important;
+  padding: 6px 18px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  transition: all 0.2s !important;
 }
-.nav-cta:hover { border-color: rgba(255,248,220,0.7) !important; }
+.nav-cta:hover { 
+  opacity: 0.85 !important;
+  transform: translateY(-1px);
+}
 
 /* ═══ HERO — SPOTLIGHT ══════════════════════════════════ */
 .hero {
@@ -84,9 +92,9 @@ body {
   width: 1px; height: 1px;
   /* Cone cónico com soft edge — simulando um spotlight real */
   box-shadow:
-    0 0 0 0 rgba(230,237,243,0),
-    0 200px 300px 180px rgba(88,166,255,0.08),
-    0 100px 150px 100px rgba(230,237,243,0.05);
+    0 0 0 0 rgba(255,255,255,0),
+    0 200px 300px 180px rgba(255,255,255,0.08),
+    0 100px 150px 100px rgba(255,255,255,0.04);
   pointer-events: none;
   z-index: 0;
 }
@@ -99,7 +107,7 @@ body {
   left: 50%; transform: translateX(-50%);
   width: 1px; height: 1px;
   box-shadow:
-    0 150px 200px 60px rgba(230,237,243,0.05),
+    0 150px 200px 60px rgba(255,255,255,0.05),
     0 80px 120px 40px rgba(255,255,255,0.03);
   pointer-events: none;
   z-index: 0;
@@ -122,8 +130,8 @@ body {
   background: radial-gradient(
     ellipse 80% 100% at 50% 0%,
     var(--text-bright) 0%,
-    rgba(230,237,243,0.7) 50%,
-    rgba(110,118,129,0.4) 100%
+    rgba(255,255,255,0.7) 50%,
+    rgba(139,148,158,0.4) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
