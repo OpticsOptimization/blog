@@ -72,36 +72,35 @@
     <script>mermaid.initialize({startOnLoad:true, theme: 'dark'});</script>
 
   <!-- COFFEE MODAL (Blog) -->
-  <div id="dre-coffee-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.8); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:20px;">
-    <div style="background:#0d1117; border:1px solid #30363d; border-radius:16px; padding:36px; max-width:460px; width:100%; position:relative; box-shadow:0 24px 60px rgba(0,0,0,0.7); font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;">
-      <button onclick="closeDreCoffee()" style="position:absolute; top:16px; right:16px; background:none; border:none; color:#8b949e; cursor:pointer; font-size:1.3rem; line-height:1;">✕</button>
-      <div style="text-align:center; margin-bottom:24px;">
-        <div style="font-size:2.2rem; margin-bottom:8px;">☕</div>
-        <h2 style="font-size:1.3rem; color:#e6edf3; margin:0 0 6px; font-weight:600;">Buy the Author a Coffee</h2>
-        <p style="color:#8b949e; font-size:0.83rem; margin:0;">Support the DRE project. Every coffee keeps the math alive.</p>
+  <div id="dre-coffee-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.9); backdrop-filter:blur(5px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#010409; border:1px solid #1f2328; padding:50px; max-width:460px; width:100%; position:relative; box-shadow:0 20px 40px rgba(0,0,0,0.8); text-align:center;">
+      <button onclick="closeDreCoffee()" style="position:absolute; top:15px; right:20px; background:none; border:none; color:#6e7681; cursor:pointer; font-size:1.5rem; line-height:1; transition:0.2s;" onmouseover="this.style.color='#e6edf3'" onmouseout="this.style.color='#6e7681'">✕</button>
+      <div style="margin-bottom:30px;">
+        <h2 style="font-family:'Inter', sans-serif; font-weight:300; letter-spacing:-0.02em; font-size: 2rem; color:#e6edf3; margin:0 0 10px;">Buy the Author a Coffee</h2>
+        <p style="color:#6e7681; font-size:0.95rem; margin:0; font-family:'Inter', sans-serif;">Support the DRE project. Every coffee keeps the math alive.</p>
       </div>
-      <div style="margin-bottom:18px;">
+      <div style="margin-bottom:18px; text-align:left;">
         <label style="display:block; color:#8b949e; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">Amount</label>
         <div style="display:flex; gap:8px;">
-          <button class="dre-amt" data-v="3" onclick="dreSelectAmt(this,3)" style="flex:1; padding:9px 4px; border-radius:6px; border:1px solid #58a6ff; background:rgba(88,166,255,0.08); color:#58a6ff; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$3</button>
-          <button class="dre-amt" data-v="5" onclick="dreSelectAmt(this,5)" style="flex:1; padding:9px 4px; border-radius:6px; border:1px solid #30363d; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$5</button>
-          <button class="dre-amt" data-v="10" onclick="dreSelectAmt(this,10)" style="flex:1; padding:9px 4px; border-radius:6px; border:1px solid #30363d; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$10</button>
-          <button class="dre-amt" data-v="custom" onclick="dreSelectAmt(this,'custom')" style="flex:1; padding:9px 4px; border-radius:6px; border:1px solid #30363d; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">Custom</button>
+          <button class="dre-amt" data-v="3" onclick="dreSelectAmt(this,3)" style="flex:1; padding:9px 4px; border-radius:4px; border:1px solid #58a6ff; background:rgba(88,166,255,0.08); color:#58a6ff; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$3</button>
+          <button class="dre-amt" data-v="5" onclick="dreSelectAmt(this,5)" style="flex:1; padding:9px 4px; border-radius:4px; border:1px solid #1f2328; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$5</button>
+          <button class="dre-amt" data-v="10" onclick="dreSelectAmt(this,10)" style="flex:1; padding:9px 4px; border-radius:4px; border:1px solid #1f2328; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">$10</button>
+          <button class="dre-amt" data-v="custom" onclick="dreSelectAmt(this,'custom')" style="flex:1; padding:9px 4px; border-radius:4px; border:1px solid #1f2328; background:transparent; color:#8b949e; cursor:pointer; font-weight:600; font-family:inherit; font-size:0.88rem;">Custom</button>
         </div>
-        <input type="number" id="dre-custom-amt" min="1" placeholder="Amount (USD)" style="display:none; margin-top:8px; width:100%; padding:9px 12px; border-radius:6px; border:1px solid #30363d; background:#010409; color:#c9d1d9; font-family:inherit; font-size:0.88rem; box-sizing:border-box; outline:none;">
+        <input type="number" id="dre-custom-amt" min="1" placeholder="Amount (USD)" style="display:none; margin-top:8px; width:100%; padding:10px 15px; border-radius:4px; border:1px solid #1f2328; background:#0d1117; color:#e6edf3; font-family:inherit; font-size:0.9rem; box-sizing:border-box; outline:none;">
       </div>
-      <div style="margin-bottom:14px;">
+      <div style="margin-bottom:14px; text-align:left;">
         <label style="display:block; color:#8b949e; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Name</label>
-        <input type="text" id="dre-coffee-name" placeholder="Anonymous Engineer" maxlength="50" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #30363d; background:#010409; color:#c9d1d9; font-family:inherit; font-size:0.88rem; box-sizing:border-box; outline:none;">
+        <input type="text" id="dre-coffee-name" placeholder="Anonymous Engineer" maxlength="50" style="width:100%; padding:10px 15px; border-radius:4px; border:1px solid #1f2328; background:#0d1117; color:#e6edf3; font-family:inherit; font-size:0.9rem; box-sizing:border-box; outline:none;">
       </div>
-      <div style="margin-bottom:20px;">
+      <div style="margin-bottom:25px; text-align:left;">
         <label style="display:block; color:#8b949e; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Message <span style="color:#484f58; text-transform:none;">(optional)</span></label>
-        <textarea id="dre-coffee-msg-text" placeholder="Great article! Keep going..." maxlength="200" rows="2" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #30363d; background:#010409; color:#c9d1d9; font-family:inherit; font-size:0.88rem; box-sizing:border-box; outline:none; resize:none;"></textarea>
+        <textarea id="dre-coffee-msg-text" placeholder="Great article! Keep going..." maxlength="200" rows="2" style="width:100%; padding:10px 15px; border-radius:4px; border:1px solid #1f2328; background:#0d1117; color:#e6edf3; font-family:inherit; font-size:0.9rem; box-sizing:border-box; outline:none; resize:none;"></textarea>
       </div>
-      <button id="dre-send-btn" onclick="dreSendCoffee()" style="width:100%; padding:13px; border-radius:6px; border:none; background:#58a6ff; color:#000; font-weight:700; font-size:0.95rem; cursor:pointer; font-family:inherit; transition:opacity 0.2s;">
+      <button id="dre-send-btn" onclick="dreSendCoffee()" style="width:100%; padding:15px; border-radius:4px; border:none; background:#e6edf3; color:#010409; font-weight:700; font-size:1rem; cursor:pointer; font-family:'Inter', sans-serif; transition:opacity 0.2s;">
         Send Coffee ☕
       </button>
-      <p id="dre-coffee-feedback" style="margin-top:10px; text-align:center; font-size:0.83rem; display:none;"></p>
+      <p id="dre-coffee-feedback" style="margin-top:15px; text-align:center; font-size:0.85rem; display:none;"></p>
     </div>
   </div>
 
